@@ -18,17 +18,9 @@ Run the following command in a terminal:
 (command -v git >/dev/null 2>&1 || (sudo apt-get update && sudo apt-get install -y git)) && ([ -d Stuff/.git ] || git clone https://github.com/khodadadiyavar/Stuff.git) && cd Stuff/HomeWorks/session2 && chmod +x setup.sh && ./setup.sh
 ```
 
-The script will:
+### This command assumes an Ubuntu or Debian-based Linux system with `apt-get`.
 
-- install Git if it is not already installed
-- clone the repository if it is not already present
-- create the lab user `bob` if needed
-- prepare the required environment
-- switch you automatically to user `bob`
-
-This command assumes an Ubuntu or Debian-based Linux system with `apt-get`.
-
-Start the homework only after the terminal switches to `bob`.
+### Start the homework only after the terminal switches to `bob`.
 
 ## Important Notes
 

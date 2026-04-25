@@ -13,11 +13,28 @@ Practice working with:
 ## Environment Setup
 
 1. Open a terminal.
-2. Go to the `session2` directory.
-3. Run the setup script:
+2. Clone the repository:
 
 ```bash
-bash ./setup.sh
+git clone https://github.com/khodadadiyavar/Stuff.git
+```
+
+3. Go to the `session2` directory:
+
+```bash
+cd Stuff/HomeWorks/session2
+```
+
+4. Make the setup script executable:
+
+```bash
+chmod +x setup.sh
+```
+
+5. Run the setup script:
+
+```bash
+./setup.sh
 ```
 
 The script will:
@@ -113,7 +130,10 @@ Make sure the prompt change is persistent.
 
 Before you finish, confirm that:
 
-- you ran `bash ./setup.sh`
+- you cloned the repository with `git clone`
+- you went to `Stuff/HomeWorks/session2`
+- you made `setup.sh` executable with `chmod +x setup.sh`
+- you ran `./setup.sh`
 - the script switched your terminal to `bob`
 - you completed all tasks as user `bob`
 - persistent changes were added to `~/.profile`

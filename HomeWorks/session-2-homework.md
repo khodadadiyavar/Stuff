@@ -1,0 +1,115 @@
+# Linux for Beginners: Session 2 Homework
+
+## Objective
+
+Practice working with:
+
+- shells
+- environment variables
+- `PATH`
+- aliases
+- profile configuration
+
+## Environment Setup
+
+Run the setup command provided by your instructor exactly as shown.
+
+After the setup finishes, you should be working as user `bob`.
+
+If the session does not switch to `bob` automatically, run:
+
+```bash
+sudo -iu bob
+```
+
+Use `bob` for the rest of this homework.
+
+## Important Notes
+
+- For this lab, make persistent changes in `~/.profile`.
+- After editing `~/.profile`, load the changes with:
+
+```bash
+source ~/.profile
+```
+
+- When you change Bob's default shell, continue the rest of the homework in the current session. Do not restart the session unless your instructor asks you to.
+- Use `sudo` when the task requires elevated privileges.
+
+## Questions
+
+### 1. What is the default shell for `bob`?
+
+Choose one:
+
+- `/bin/zsh`
+- `/bin/bash`
+- `/bin/sh`
+- `/bin/ksh`
+
+### 2. Change the shell for `bob` from `bash` to Bourne Shell
+
+Notes:
+
+- Bob's password is `caleston123`.
+- Use `sudo` for this task.
+- `/bin/sh` may point to the system's POSIX shell implementation.
+
+### 3. What is the value of the environment variable `TERM`?
+
+Choose one:
+
+- `terminal`
+- `xterm-256color`
+- `xterm`
+- `xorg`
+- `1`
+
+### 4. Create a persistent variable
+
+Create this variable and make it persistent:
+
+```bash
+MY_VARIABLE=example_value
+```
+
+### 5. Create a new environment variable called `PROJECT`
+
+Set it to this value and make it persistent:
+
+```bash
+PROJECT=MERCURY
+```
+
+### 6. Which of the following directories is NOT part of the `PATH` variable?
+
+Choose one:
+
+- `/sbin`
+- `/usr/bin`
+- `/opt/caleston-code`
+- `/bin`
+
+### 7. Create an alias called `up`
+
+Make `up` run the command `uptime`, and make the alias persistent by adding it to `~/.profile`.
+
+### 8. Update Bob's prompt so it displays the date
+
+Required format example:
+
+```text
+[Wed Apr 22]bob@hostname:~$
+```
+
+Make sure the prompt change is persistent.
+
+## Submission Checklist
+
+Before you finish, confirm that:
+
+- you completed all tasks as user `bob`
+- persistent changes were added to `~/.profile`
+- you reloaded `~/.profile`
+- the alias `up` works
+- the prompt shows the date in the required format

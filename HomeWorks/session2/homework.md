@@ -12,20 +12,25 @@ Practice working with:
 
 ## Environment Setup
 
-Run the setup command provided by your instructor exactly as shown.
-
-After the setup finishes, you should be working as user `bob`.
-
-If the session does not switch to `bob` automatically, run:
+1. Open a terminal.
+2. Go to the `session2` directory.
+3. Run the setup script:
 
 ```bash
-sudo -iu bob
+bash ./setup.sh
 ```
 
-Use `bob` for the rest of this homework.
+The script will:
+
+- create the lab user `bob` if needed
+- prepare the required environment
+- switch you automatically to user `bob`
+
+Start the homework only after the terminal switches to `bob`.
 
 ## Important Notes
 
+- Complete the homework as user `bob`.
 - For this lab, make persistent changes in `~/.profile`.
 - After editing `~/.profile`, load the changes with:
 
@@ -108,6 +113,8 @@ Make sure the prompt change is persistent.
 
 Before you finish, confirm that:
 
+- you ran `bash ./setup.sh`
+- the script switched your terminal to `bob`
 - you completed all tasks as user `bob`
 - persistent changes were added to `~/.profile`
 - you reloaded `~/.profile`

@@ -12,36 +12,21 @@ Practice working with:
 
 ## Environment Setup
 
-1. Open a terminal.
-2. Clone the repository:
+Run the following command in a terminal:
 
 ```bash
-git clone https://github.com/khodadadiyavar/Stuff.git
-```
-
-3. Go to the `session2` directory:
-
-```bash
-cd Stuff/HomeWorks/session2
-```
-
-4. Make the setup script executable:
-
-```bash
-chmod +x setup.sh
-```
-
-5. Run the setup script:
-
-```bash
-./setup.sh
+(command -v git >/dev/null 2>&1 || (sudo apt-get update && sudo apt-get install -y git)) && ([ -d Stuff/.git ] || git clone https://github.com/khodadadiyavar/Stuff.git) && cd Stuff/HomeWorks/session2 && chmod +x setup.sh && ./setup.sh
 ```
 
 The script will:
 
+- install Git if it is not already installed
+- clone the repository if it is not already present
 - create the lab user `bob` if needed
 - prepare the required environment
 - switch you automatically to user `bob`
+
+This command assumes an Ubuntu or Debian-based Linux system with `apt-get`.
 
 Start the homework only after the terminal switches to `bob`.
 
@@ -62,13 +47,6 @@ source ~/.profile
 
 ### 1. What is the default shell for `bob`?
 
-Choose one:
-
-- `/bin/zsh`
-- `/bin/bash`
-- `/bin/sh`
-- `/bin/ksh`
-
 ### 2. Change the shell for `bob` from `bash` to Bourne Shell
 
 Notes:
@@ -78,14 +56,6 @@ Notes:
 - `/bin/sh` may point to the system's POSIX shell implementation.
 
 ### 3. What is the value of the environment variable `TERM`?
-
-Choose one:
-
-- `terminal`
-- `xterm-256color`
-- `xterm`
-- `xorg`
-- `1`
 
 ### 4. Create a persistent variable
 
@@ -105,13 +75,6 @@ PROJECT=MERCURY
 
 ### 6. Which of the following directories is NOT part of the `PATH` variable?
 
-Choose one:
-
-- `/sbin`
-- `/usr/bin`
-- `/opt/caleston-code`
-- `/bin`
-
 ### 7. Create an alias called `up`
 
 Make `up` run the command `uptime`, and make the alias persistent by adding it to `~/.profile`.
@@ -130,10 +93,7 @@ Make sure the prompt change is persistent.
 
 Before you finish, confirm that:
 
-- you cloned the repository with `git clone`
-- you went to `Stuff/HomeWorks/session2`
-- you made `setup.sh` executable with `chmod +x setup.sh`
-- you ran `./setup.sh`
+- you ran the setup command from the Environment Setup section
 - the script switched your terminal to `bob`
 - you completed all tasks as user `bob`
 - persistent changes were added to `~/.profile`

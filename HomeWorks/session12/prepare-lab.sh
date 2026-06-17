@@ -11,7 +11,6 @@ echo "Session 12 prep starting..."
 LAB_GROUPS=(
   session12_mercury
   session12_sapphire
-  session12_cannon
 )
 
 for group in "${LAB_GROUPS[@]}"; do
@@ -19,6 +18,28 @@ for group in "${LAB_GROUPS[@]}"; do
     sudo groupadd "${group}"
   fi
 done
+
+if grep -q '^session12_john:' /etc/passwd; then
+  sudo userdel -r session12_john 2>/dev/null || sudo userdel session12_john
+fi
+
+if grep -q '^session12_sarah:' /etc/passwd; then
+  sudo userdel -r session12_sarah 2>/dev/null || sudo userdel session12_sarah
+fi
+
+if grep -q '^session12_sarah:' /etc/group; then
+  sudo groupdel session12_sarah
+fi
+
+if grep -q '^session12_john:' /etc/group; then
+  sudo groupdel session12_john
+fi
+
+if grep -q '^session12_cannon:' /etc/group; then
+  sudo groupmod -g 2012 session12_cannon
+else
+  sudo groupadd -g 2012 session12_cannon
+fi
 
 if ! grep -q '^session12_alex:' /etc/group; then
   sudo groupadd session12_alex

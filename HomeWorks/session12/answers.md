@@ -98,7 +98,7 @@ Run:
 id session12_chris
 ```
 
-You should see `uid=2012(session12_chris)` and a numeric `gid=` value for the primary group. Identify that numeric `gid=` value first, then match it to the primary group name `session12_cannon`.
+You should see `uid=2012(session12_chris)` and `gid=2012(session12_cannon)`.
 
 ### 5. Check which groups `session12_chris` belongs to.
 

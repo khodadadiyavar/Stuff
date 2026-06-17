@@ -8,13 +8,13 @@ mkdir -p "${LAB_DIR}"
 
 echo "Session 12 prep starting..."
 
-GROUPS=(
+LAB_GROUPS=(
   session12_mercury
   session12_sapphire
   session12_cannon
 )
 
-for group in "${GROUPS[@]}"; do
+for group in "${LAB_GROUPS[@]}"; do
   if ! grep -q "^${group}:" /etc/group; then
     sudo groupadd "${group}"
   fi

@@ -40,7 +40,7 @@ fi
 sudo usermod -u 2012 -g session12_cannon -d /home/session12_chris -m -s /bin/sh -c "Session 12 Analyst" session12_chris
 sudo mkdir -p /home/session12_chris
 sudo chown session12_chris:session12_cannon /home/session12_chris
-sudo usermod -aG session12_mercury,session12_sapphire session12_chris
+sudo usermod -G session12_mercury,session12_sapphire session12_chris
 
 echo 'session12_alex:session12321' | sudo chpasswd
 echo 'session12_chris:session12321' | sudo chpasswd

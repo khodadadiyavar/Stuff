@@ -18,10 +18,14 @@ for group in "${GROUPS[@]}"; do
   fi
 done
 
-if ! grep -q '^session12_alex:' /etc/passwd; then
-  sudo useradd -m -s /bin/bash session12_alex
+if ! grep -q '^session12_alex:' /etc/group; then
+  sudo groupadd session12_alex
 fi
-sudo usermod -d /home/session12_alex -m -s /bin/bash session12_alex
+
+if ! grep -q '^session12_alex:' /etc/passwd; then
+  sudo useradd -m -g session12_alex -s /bin/bash session12_alex
+fi
+sudo usermod -g session12_alex -d /home/session12_alex -m -s /bin/bash session12_alex
 sudo mkdir -p /home/session12_alex
 sudo chown session12_alex:session12_alex /home/session12_alex
 

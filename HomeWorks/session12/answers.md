@@ -439,7 +439,7 @@ Answer:
 Use:
 
 ```bash
-chmod go=rx "$HOME/session12-lab/projects/sports/soccer"
+sudo chmod go=rx "$HOME/session12-lab/projects/sports/soccer"
 ```
 
 Description:
@@ -451,7 +451,7 @@ How to solve:
 Run:
 
 ```bash
-chmod go=rx "$HOME/session12-lab/projects/sports/soccer"
+sudo chmod go=rx "$HOME/session12-lab/projects/sports/soccer"
 ```
 
 This sets both group and others to exactly `r-x`.
@@ -463,7 +463,7 @@ Answer:
 Use:
 
 ```bash
-chmod g+w,o-rwx "$HOME/session12-lab/projects/sports/soccer"
+sudo chmod g+w,o-rwx "$HOME/session12-lab/projects/sports/soccer"
 ```
 
 Description:
@@ -475,7 +475,7 @@ How to solve:
 Run:
 
 ```bash
-chmod g+w,o-rwx "$HOME/session12-lab/projects/sports/soccer"
+sudo chmod g+w,o-rwx "$HOME/session12-lab/projects/sports/soccer"
 ```
 
 After this change, the group regains write permission and others lose all permissions.

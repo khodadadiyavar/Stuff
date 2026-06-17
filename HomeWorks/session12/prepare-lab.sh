@@ -31,8 +31,14 @@ sudo usermod -g session12_alex -d /home/session12_alex -m -s /bin/bash session12
 sudo mkdir -p /home/session12_alex
 sudo chown session12_alex:session12_alex /home/session12_alex
 
+if grep -q '^session12_service:' /etc/passwd; then
+  if [ "$(id -u session12_service)" -ge 1000 ]; then
+    sudo userdel session12_service
+  fi
+fi
+
 if ! grep -q '^session12_service:' /etc/passwd; then
-  sudo useradd -M -d /nonexistent -s /usr/sbin/nologin session12_service
+  sudo useradd -r -M -d /nonexistent -s /usr/sbin/nologin session12_service
 fi
 sudo usermod -d /nonexistent -s /usr/sbin/nologin session12_service
 

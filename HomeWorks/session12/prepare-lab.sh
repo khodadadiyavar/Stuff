@@ -59,4 +59,23 @@ ln -sf "${LAB_DIR}/projects/shared/report.txt" "${LAB_DIR}/report-link"
 rm -f "${LAB_DIR}/lab-pipe"
 mkfifo "${LAB_DIR}/lab-pipe"
 
-echo "Session 12 prep starting..."
+cat > "${LAB_DIR}/LAB_NOTES.txt" <<EOF
+Session 12 lab prepared.
+
+Lab directory: ${LAB_DIR}
+Users:
+- session12_alex
+- session12_chris
+- session12_service
+
+Groups:
+- session12_mercury
+- session12_sapphire
+- session12_cannon
+
+Password to use for created standard users:
+session12321
+EOF
+
+echo "Session 12 lab prepared at ${LAB_DIR}"
+cat "${LAB_DIR}/LAB_NOTES.txt"

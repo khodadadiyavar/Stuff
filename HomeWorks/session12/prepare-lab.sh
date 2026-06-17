@@ -45,4 +45,18 @@ sudo usermod -G session12_mercury,session12_sapphire session12_chris
 echo 'session12_alex:session12321' | sudo chpasswd
 echo 'session12_chris:session12321' | sudo chpasswd
 
+mkdir -p "${LAB_DIR}"/projects/{sports,shared,secure}
+touch "${LAB_DIR}/projects/sports/soccer"
+touch "${LAB_DIR}/projects/sports/tennis"
+touch "${LAB_DIR}/projects/shared/report.txt"
+
+chmod 777 "${LAB_DIR}/projects/sports/soccer"
+chmod 750 "${LAB_DIR}/projects/sports"
+sudo chown session12_alex:session12_mercury "${LAB_DIR}/projects/sports/soccer"
+sudo chown -R session12_alex:session12_mercury "${LAB_DIR}/projects/shared"
+
+ln -sf "${LAB_DIR}/projects/shared/report.txt" "${LAB_DIR}/report-link"
+rm -f "${LAB_DIR}/lab-pipe"
+mkfifo "${LAB_DIR}/lab-pipe"
+
 echo "Session 12 prep starting..."

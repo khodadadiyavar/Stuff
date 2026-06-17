@@ -4,7 +4,7 @@
 
 ## Answer Key
 
-### 1. Identify which prepared account is a standard user account.
+### 1. Identify the prepared standard user account that uses `/bin/bash` as its login shell.
 
 Answer:
 
@@ -26,7 +26,7 @@ Run:
 grep '^session12_alex:' /etc/passwd
 ```
 
-You should see an entry for `session12_alex` with a normal home directory and a login shell such as `/bin/bash`. That is the prepared standard user account for this lab.
+You should see an entry for `session12_alex` with a normal home directory and the login shell `/bin/bash`. `session12_chris` is also a standard user, but this question is asking for the prepared standard user that uses `/bin/bash`, which is `session12_alex`.
 
 ### 2. Identify which prepared account is a service-style account.
 
@@ -98,7 +98,7 @@ Run:
 id session12_chris
 ```
 
-You should see `uid=2012(session12_chris)` and the primary group set to `session12_cannon`.
+You should see `uid=2012(session12_chris)` and a numeric `gid=` value for the primary group. Identify that numeric `gid=` value first, then match it to the primary group name `session12_cannon`.
 
 ### 5. Check which groups `session12_chris` belongs to.
 
@@ -355,7 +355,7 @@ Answer:
 Use:
 
 ```bash
-sudo useradd -u 2010 -g session12_john -d /home/session12_john -s /bin/sh session12_john
+sudo useradd -m -u 2010 -g session12_john -d /home/session12_john -s /bin/sh session12_john
 sudo passwd session12_john
 ```
 
@@ -368,7 +368,7 @@ How to solve:
 Run:
 
 ```bash
-sudo useradd -u 2010 -g session12_john -d /home/session12_john -s /bin/sh session12_john
+sudo useradd -m -u 2010 -g session12_john -d /home/session12_john -s /bin/sh session12_john
 sudo passwd session12_john
 ```
 

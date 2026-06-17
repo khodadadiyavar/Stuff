@@ -54,7 +54,7 @@ Read that file before you start the tasks.
 
 ## Part 1: Accounts and Basic Security
 
-### 1. Identify which prepared account is a standard user account.
+### 1. Identify the prepared standard user account that uses `/bin/bash` as its login shell.
 
 Use the prepared accounts listed in `LAB_NOTES.txt`.
 

@@ -20,9 +20,17 @@ for file in "${HOSTS_FILE}" "${RESOLV_FILE}" "${NSSWITCH_FILE}"; do
   fi
 done
 
-sudo cp "${HOSTS_FILE}" "${HOSTS_BACKUP}"
-sudo cp "${RESOLV_FILE}" "${RESOLV_BACKUP}"
-sudo cp "${NSSWITCH_FILE}" "${NSSWITCH_BACKUP}"
+if [ ! -f "${HOSTS_BACKUP}" ]; then
+  cp "${HOSTS_FILE}" "${HOSTS_BACKUP}"
+fi
+
+if [ ! -f "${RESOLV_BACKUP}" ]; then
+  cp "${RESOLV_FILE}" "${RESOLV_BACKUP}"
+fi
+
+if [ ! -f "${NSSWITCH_BACKUP}" ]; then
+  cp "${NSSWITCH_FILE}" "${NSSWITCH_BACKUP}"
+fi
 
 cat > "${LAB_DIR}/LAB_NOTES.txt" <<EOF
 Session 14 DNS lab prepared.

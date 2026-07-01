@@ -39,3 +39,22 @@ Hosts file backup: ${HOSTS_BACKUP}
 resolv.conf backup: ${RESOLV_BACKUP}
 nsswitch.conf backup: ${NSSWITCH_BACKUP}
 EOF
+
+cat >> "${LAB_DIR}/LAB_NOTES.txt" <<EOF
+
+Rollback examples:
+sudo cp ${HOSTS_BACKUP} ${HOSTS_FILE}
+sudo cp ${RESOLV_BACKUP} ${RESOLV_FILE}
+sudo cp ${NSSWITCH_BACKUP} ${NSSWITCH_FILE}
+EOF
+
+cat >> "${LAB_DIR}/LAB_NOTES.txt" <<'EOF'
+
+Use this lab to compare:
+- answers from /etc/hosts
+- answers from DNS
+- answers affected by search order
+EOF
+
+echo "Session 14 lab prepared at ${LAB_DIR}"
+cat "${LAB_DIR}/LAB_NOTES.txt"

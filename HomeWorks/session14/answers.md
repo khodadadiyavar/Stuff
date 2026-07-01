@@ -170,7 +170,29 @@ You are comparing the resolved result from both tools.
 Most of the time both commands should return the same destination IP information,
 even if the formatting of the output differs.
 
-## 10. Change the system nameserver to `8.8.8.8`.
+## 10. Add a local hosts entry using the test name from `~/session14-lab/LAB_NOTES.txt`.
+
+### Action
+
+Edit `/etc/hosts` and add a line using the values from `LAB_NOTES.txt`.
+
+Example:
+
+```text
+127.0.0.1 session14-local.test
+```
+
+### Verification
+
+```bash
+cat /etc/hosts
+```
+
+### Expected observation
+
+You should see the new local host entry in `/etc/hosts`.
+
+## 11. Change the system nameserver to `8.8.8.8`.
 
 ### Action
 
@@ -178,12 +200,6 @@ Edit `/etc/resolv.conf` and set:
 
 ```text
 nameserver 8.8.8.8
-```
-
-### One simple way
-
-```bash
-sudo vi /etc/resolv.conf
 ```
 
 ### Verification
@@ -200,7 +216,7 @@ You should now see:
 nameserver 8.8.8.8
 ```
 
-## 11. Change the search domain to a new test domain of your choice and record it.
+## 12. Change the search domain to a new test domain of your choice and record it.
 
 ### Action
 
@@ -210,12 +226,6 @@ Add or update a `search` line in `/etc/resolv.conf`.
 
 ```text
 search training.local
-```
-
-### One simple way
-
-```bash
-sudo vi /etc/resolv.conf
 ```
 
 ### Verification
@@ -228,7 +238,7 @@ cat /etc/resolv.conf
 
 You should see your chosen `search` line in the resolver configuration.
 
-## 12. Change the lookup order in `/etc/nsswitch.conf` so that `dns` is checked
+## 13. Change the lookup order in `/etc/nsswitch.conf` so that `dns` is checked
 ## before `files`.
 
 ### Action
@@ -237,12 +247,6 @@ Edit the `hosts:` line so it becomes:
 
 ```text
 hosts: dns files
-```
-
-### One simple way
-
-```bash
-sudo vi /etc/nsswitch.conf
 ```
 
 ### Verification
@@ -259,7 +263,7 @@ You should now see:
 hosts: dns files
 ```
 
-## 13. After changing the lookup order, explain how host resolution behavior changes.
+## 14. After changing the lookup order, explain how host resolution behavior changes.
 
 ### Explanation
 
@@ -275,8 +279,8 @@ cat /etc/hosts
 
 Compare the resolver order to the names you expect to resolve locally.
 
-## 14. Pick one lookup result and determine whether it is coming from `/etc/hosts`
-## or from DNS. Explain why.
+## 15. Use the local hosts test name from `LAB_NOTES.txt` and determine whether the
+## result is coming from `/etc/hosts` or from DNS. Explain why.
 
 ### Suggested method
 
@@ -292,25 +296,23 @@ cat /etc/hosts
 grep '^hosts:' /etc/nsswitch.conf
 ```
 
-3. Resolve the name:
+3. Resolve the local hosts test name from `LAB_NOTES.txt`:
 
 ```bash
-nslookup example.com
+nslookup session14-local.test
 ```
 
 or
 
 ```bash
-dig example.com
+dig session14-local.test
 ```
 
 ### Explanation
 
-If the name appears in `/etc/hosts` and `files` is checked first, the result can come
-from the host file. If the name is not in `/etc/hosts`, or if `dns` is checked first,
-the answer is more likely to come from DNS.
+If the test name appears in `/etc/hosts`, then the host file is the reason it resolves locally. The `hosts:` order in `/etc/nsswitch.conf` determines whether the local hosts file is checked before DNS or after DNS.
 
-## 15. Use the backup notes to describe how you would restore the original
+## 16. Use the backup notes to describe how you would restore the original
 ## DNS-related files if needed.
 
 ### Command

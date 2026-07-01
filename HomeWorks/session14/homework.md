@@ -46,17 +46,19 @@ cat ~/session14-lab/LAB_NOTES.txt
 
 ## Part 3: Controlled DNS Configuration Changes
 
-10. Change the system nameserver to `8.8.8.8`.
-11. Change the search domain to a new test domain of your choice and record it.
-12. Change the lookup order in `/etc/nsswitch.conf` so that `dns` is checked before
+10. Add a local hosts entry using the test name from `~/session14-lab/LAB_NOTES.txt`.
+    Point that name to the IP address listed in the same notes file.
+11. Change the system nameserver to `8.8.8.8`.
+12. Change the search domain to a new test domain of your choice and record it.
+13. Change the lookup order in `/etc/nsswitch.conf` so that `dns` is checked before
     `files`.
 
 ## Part 4: Reasoning and Troubleshooting
 
-13. After changing the lookup order, explain how host resolution behavior changes.
-14. Pick one lookup result and determine whether it is coming from `/etc/hosts` or from
-    DNS. Explain why.
-15. Use the backup notes to describe how you would restore the original DNS-related
+14. After changing the lookup order, explain how host resolution behavior changes.
+15. Use the local hosts test name from `LAB_NOTES.txt` and determine whether the result
+    is coming from `/etc/hosts` or from DNS. Explain why.
+16. Use the backup notes to describe how you would restore the original DNS-related
     files if needed.
 
 ## Submission Checklist
@@ -64,6 +66,6 @@ cat ~/session14-lab/LAB_NOTES.txt
 - You ran the prep script and reviewed `LAB_NOTES.txt`.
 - You identified the hostname, nameserver, search domain, and resolver order.
 - You practiced both `dig` and `nslookup`.
-- You changed the nameserver, search domain, and resolver order.
+- You changed `/etc/hosts`, the nameserver, the search domain, and the resolver order.
 - You explained the difference between `/etc/hosts` results and DNS results.
 - You know how to restore the original files using the recorded backups.

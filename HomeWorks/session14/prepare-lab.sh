@@ -54,6 +54,11 @@ Use this lab to compare:
 - answers from /etc/hosts
 - answers from DNS
 - answers affected by search order
+
+Prepared investigation targets:
+- Public DNS test domain: example.com
+- Local hosts test name: session14-local.test
+- Local hosts test IP: 127.0.0.1
 EOF
 
 echo "Session 14 lab prepared at ${LAB_DIR}"
